@@ -1,0 +1,10 @@
+.pointer-table tbody>tr {
+  cursor: pointer;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.inline {
+  display: inline;
+}

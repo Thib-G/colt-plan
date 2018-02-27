@@ -1,0 +1,1 @@
+postgraphile -c postgres://user:pass@localhost/colt_viz -a -j -s colt_viz_dev -w --cors
