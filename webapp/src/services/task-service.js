@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { DateTime } from 'luxon';
 
-const GRAPHQL_URL = 'http://localhost:5000/graphql';
+const GRAPHQL_URL = 'http://iictciapwv236/graphql';
 
 export default {
   projectTabIndex: 0,

@@ -4,7 +4,6 @@
       <div class="input-group input-group-sm">
         <flat-pickr
           v-model="newDate"
-          placeholder="Select date"
           :config="config"
         />
         <div class="input-group-append">
