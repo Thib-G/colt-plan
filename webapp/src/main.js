@@ -4,6 +4,7 @@ import 'core-js/fn/number/is-nan';
 import 'core-js/fn/math/trunc';
 import 'core-js/fn/array/includes';
 import 'core-js/fn/array/find-index';
+import 'core-js/fn/math/sign';
 
 // CSS imports (Bootstrap and BootstrapVue)
 import 'bootstrap/dist/css/bootstrap.css';

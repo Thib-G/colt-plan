@@ -5,7 +5,8 @@ const GRAPHQL_URL = 'http://localhost:5000/graphql';
 
 export default {
   projectTabIndex: 0,
-  getTasksByTemplateId(templateId) {
+  getTasksByTemplateId(templateIdParam) {
+    const templateId = +templateIdParam;
     const query = `
       query taskQuery($templateId: Int)
       {
@@ -53,7 +54,8 @@ export default {
         .map(project => Object.assign({}, project,
           { startDate: DateTime.fromISO(project.startDate) })));
   },
-  getTasksByProjectId(projectId) {
+  getTasksByProjectId(projectIdParam) {
+    const projectId = +projectIdParam;
     const query = `
     query tasksByProjectId($projectId: Int)
     {
@@ -99,7 +101,9 @@ export default {
         );
       });
   },
-  addFinishedTask(projectId, taskId, finishedDate = DateTime.local()) {
+  addFinishedTask(projectIdParam, taskIdParam, finishedDate = DateTime.local()) {
+    const projectId = +projectIdParam;
+    const taskId = +taskIdParam;
     const query = `
       mutation addFinishedTask($task: FinishedTaskInput!) {
         createFinishedTask(input: {
@@ -133,7 +137,8 @@ export default {
         );
       });
   },
-  removeFinishedTask(id) {
+  removeFinishedTask(idParam) {
+    const id = +idParam;
     const query = `
       mutation deleteFinishedTask($id: Int!) {
         deleteFinishedTaskByRowId(input: {
@@ -160,7 +165,8 @@ export default {
         );
       });
   },
-  getFinishedTasks(projectId) {
+  getFinishedTasks(projectIdParam) {
+    const projectId = +projectIdParam;
     const query = `
       query finishedTasksByProjectId($projectId: Int)
       {
