@@ -51,8 +51,8 @@
 import { DateTime } from 'luxon';
 
 import TaskService from '@/services/task-service';
-import TimelineComponent from '@/components/TimelineComponent';
-import ItemDateButtonComponent from '@/components/ItemDateButtonComponent';
+import TimelineComponent from '@/components/TimelineComponent.vue';
+import ItemDateButtonComponent from '@/components/ItemDateButtonComponent.vue';
 
 export default {
   data() {
@@ -107,24 +107,20 @@ export default {
         return [];
       }
       const items = this.project.template.tasks.nodes;
-      return items.map(item =>
-        Object.assign({}, item, {
-          calculatedDate: this.project.startDate.minus({
-            years: item.yrBefore,
-          }),
-          isFinished: this.finishedTaskIds.includes(item.id),
-          finishedDate: this.finishedTaskIds.includes(item.id)
-            ? this.finishedTasks.find(t => t.taskId === item.id).finishedDate
-            : null,
+      return items.map(item => Object.assign({}, item, {
+        calculatedDate: this.project.startDate.minus({
+          years: item.yrBefore,
         }),
-      );
+        isFinished: this.finishedTaskIds.includes(item.id),
+        finishedDate: this.finishedTaskIds.includes(item.id)
+          ? this.finishedTasks.find(t => t.taskId === item.id).finishedDate
+          : null,
+      }));
     },
     tableItems() {
-      return this.items.map(item =>
-        Object.assign({}, item, {
-          _rowVariant: item.isFinished ? 'success' : '',
-        }),
-      );
+      return this.items.map(item => Object.assign({}, item, {
+        _rowVariant: item.isFinished ? 'success' : '',
+      }));
     },
     finishedTaskIds() {
       return this.finishedTasks.map(task => task.taskId);
@@ -136,7 +132,7 @@ export default {
   methods: {
     setDone(item, newDate = DateTime.local()) {
       if (item.isFinished) {
-        const id = this.finishedTasks.find(task => task.taskId === item.id).id;
+        const { id } = this.finishedTasks.find(task => task.taskId === item.id);
         this.taskService.removeFinishedTask(id).then((data) => {
           const index = this.finishedTasks.findIndex(
             task => task.id === data.id,
@@ -161,4 +157,3 @@ export default {
   },
 };
 </script>
-

@@ -21,7 +21,7 @@ import faCheck from '@fortawesome/fontawesome-free-solid/faCheck';
 
 import '@/assets/style/app.css';
 
-import App from './App';
+import App from './App.vue';
 import router from './router';
 
 Vue.config.productionTip = false;
@@ -32,10 +32,7 @@ fontawesome.library.add(faCheck);
 // Use the icon component anywhere in the app
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>',
-});
+  render: h => h(App),
+}).$mount('#app');

@@ -120,8 +120,9 @@
 </template>
 
 <script>
-import d3 from '@/assets/d3';
 import { DateTime } from 'luxon';
+
+import d3 from '@/assets/d3';
 
 export default {
   props: ['items', 'isTemplate', 'doneItems'],

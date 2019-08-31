@@ -14,7 +14,7 @@
 
 <script>
 import TaskService from '@/services/task-service';
-import TimelineComponent from '@/components/TimelineComponent';
+import TimelineComponent from '@/components/TimelineComponent.vue';
 
 export default {
   data() {

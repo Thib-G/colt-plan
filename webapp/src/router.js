@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import TemplatePage from '@/pages/TemplatePage';
-import ProjectsPage from '@/pages/ProjectsPage';
-import ProjectPage from '@/pages/ProjectPage';
-import TestPage from '@/pages/TestPage';
+import TemplatePage from '@/pages/TemplatePage.vue';
+import ProjectsPage from '@/pages/ProjectsPage.vue';
+import ProjectPage from '@/pages/ProjectPage.vue';
+import TestPage from '@/pages/TestPage.vue';
 
 Vue.use(Router);
 

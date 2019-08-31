@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import NavbarTop from '@/components/NavbarTop';
+import NavbarTop from '@/components/NavbarTop.vue';
 
 export default {
   name: 'App',

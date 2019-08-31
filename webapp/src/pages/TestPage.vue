@@ -16,7 +16,8 @@ export default {
     };
   },
   components: {
-    'async-component': () => axios.post('http://localhost:5000/graphql', { query: `
+    'async-component': () => axios.post('http://localhost:5000/graphql', {
+      query: `
       {
         asyncComponentByRowId(rowId: 1) {
           component

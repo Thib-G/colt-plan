@@ -4,7 +4,6 @@
       <div class="input-group input-group-sm">
         <flat-pickr
           v-model="newDate"
-          placeholder="Select date"
           :config="config"
         />
         <div class="input-group-append">
@@ -16,9 +15,11 @@
 </template>
 
 <script>
-import flatPickr from 'vue-flatpickr-component';
 import 'flatpickr/dist/flatpickr.css';
+
 import { DateTime } from 'luxon';
+
+import flatPickr from 'vue-flatpickr-component';
 
 export default {
   props: ['item'],
@@ -51,4 +52,3 @@ export default {
     width: 140px;
   }
 </style>
-

@@ -50,8 +50,8 @@ export default {
     `;
     return axios.post(GRAPHQL_URL, { query })
       .then(response => response.data.data.allStartDates.nodes
-        .map(project =>
-          Object.assign({}, project, { startDate: DateTime.fromISO(project.startDate) })));
+        .map(project => Object.assign({}, project,
+          { startDate: DateTime.fromISO(project.startDate) })));
   },
   getTasksByProjectId(projectId) {
     const query = `
@@ -124,6 +124,7 @@ export default {
     };
     return axios.post(GRAPHQL_URL, { query, variables })
       .then((response) => {
+        // eslint-disable-next-line
         const finishedTask = response.data.data.createFinishedTask.finishedTask;
         return Object.assign(
           {},
@@ -183,7 +184,7 @@ export default {
         .map(task => Object.assign(
           {},
           task,
-          { finishedDate: DateTime.fromISO(task.finishedDate) }),
-        ));
+          { finishedDate: DateTime.fromISO(task.finishedDate) },
+        )));
   },
 };
