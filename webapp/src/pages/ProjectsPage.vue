@@ -6,7 +6,7 @@
       :items="items"
       :fields="fields"
     >
-      <template slot="projectDescr" slot-scope="data">
+      <template v-slot:cell(projectDescr)="data">
         <router-link :to="`/project/${data.item.id}`">{{ data.item.projectDescr }}</router-link>
       </template>
     </b-table>

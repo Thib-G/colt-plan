@@ -30,7 +30,7 @@
             :fields="fields"
             @row-clicked="setDoneRow"
           >
-            <template slot="finishedDate" slot-scope="data">
+            <template v-slot:cell(finishedDate)="data">
               <transition>
                 <span v-if="data.item.finishedDate">
                   {{ data.item.finishedDate.toLocaleString() }}
